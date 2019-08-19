@@ -1,0 +1,18 @@
+<!-- <h1>Games#new</h1>
+<p>Find me in app/views/games/new.html.erb</p> -->
+<h1>New Game</h1>
+
+<h3>Letters</h3>
+<ul style="display:inline">
+  <% @letters.each do |letter| %>
+    <li><%= letter %></li>
+  <% end %>
+</ul>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <!-- <input id="token" name="token" type="hidden" value=<%=@letters.join("")%>/> -->
+  <input type="text" name="word" placeholder="What's the longest word you can find?">
+  <input id="random_grid" name="random_grid" type="hidden" value=<%=@letters.join("")%> />
+  <input type="submit">
+</form>
